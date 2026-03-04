@@ -1,0 +1,280 @@
+{
+  "id": "0eb8cddc-7311-40e1-97d5-3e4f09a8de78",
+  "prevId": "322f9782-c447-49e1-8ae1-8ce002b92038",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.students": {
+      "name": "students",
+      "schema": "",
+      "columns": {
+        "student_name": {
+          "name": "student_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "class": {
+          "name": "class",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "division": {
+          "name": "division",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "roll_number": {
+          "name": "roll_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "admission_number": {
+          "name": "admission_number",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "aadhar_number": {
+          "name": "aadhar_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mother_name": {
+          "name": "mother_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dob": {
+          "name": "dob",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "father_name": {
+          "name": "father_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "panchayat": {
+          "name": "panchayat",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ward": {
+          "name": "ward",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "place": {
+          "name": "place",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "house_name": {
+          "name": "house_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gender": {
+          "name": "gender",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "religion": {
+          "name": "religion",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "caste": {
+          "name": "caste",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "poverty_line": {
+          "name": "poverty_line",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "medium": {
+          "name": "medium",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone_number": {
+          "name": "phone_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "house_ownership": {
+          "name": "house_ownership",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "house_type": {
+          "name": "house_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "father_educational_qualification": {
+          "name": "father_educational_qualification",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "father_job": {
+          "name": "father_job",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mother_educational_qualification": {
+          "name": "mother_educational_qualification",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mother_job": {
+          "name": "mother_job",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "other_family_members": {
+          "name": "other_family_members",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "annual_income": {
+          "name": "annual_income",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "study_room": {
+          "name": "study_room",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "study_table": {
+          "name": "study_table",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "study_time": {
+          "name": "study_time",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "difficulties_obstacles": {
+          "name": "difficulties_obstacles",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "special_study_support": {
+          "name": "special_study_support",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "parental_involvement": {
+          "name": "parental_involvement",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "child_health_status": {
+          "name": "child_health_status",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "child_sme_status": {
+          "name": "child_sme_status",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.teachers": {
+      "name": "teachers",
+      "schema": "",
+      "columns": {
+        "t_id": {
+          "name": "t_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(120)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(30)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

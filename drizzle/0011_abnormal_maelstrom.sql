@@ -1,0 +1,2 @@
+ALTER TABLE "term_skill" DROP CONSTRAINT "term_skill_admission_number_term_subject_reading_writing_skill_level_in_general_pk";--> statement-breakpoint
+ALTER TABLE "term_skill" ADD COLUMN "id" serial PRIMARY KEY NOT NULL;

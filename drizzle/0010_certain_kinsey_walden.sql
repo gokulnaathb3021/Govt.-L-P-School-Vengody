@@ -1,0 +1,4 @@
+ALTER TABLE "HAQTable" ADD CONSTRAINT "HAQTable_admission_number_assessment_type_pk" PRIMARY KEY("admission_number","assessment_type");--> statement-breakpoint
+ALTER TABLE "about_term" ADD CONSTRAINT "about_term_admission_number_term_pk" PRIMARY KEY("admission_number","term");--> statement-breakpoint
+ALTER TABLE "extracurricular" ADD CONSTRAINT "extracurricular_admission_number_assessment_type_pk" PRIMARY KEY("admission_number","assessment_type");--> statement-breakpoint
+ALTER TABLE "term_skill" ADD CONSTRAINT "term_skill_admission_number_term_subject_reading_writing_skill_level_in_general_pk" PRIMARY KEY("admission_number","term","subject","reading","writing","skill_level_in_general");
