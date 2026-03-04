@@ -23,7 +23,7 @@ export default function Header() {
               />
             </div>
 
-            <div className="flex flex-col gap-2 items-center sm:flex-row">
+            <div className="flex gap-2 items-center">
               <Suspense fallback={<div>Loading auth...</div>}>
                 <SignedOut>
                   <SignInButton>
