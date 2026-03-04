@@ -4,12 +4,13 @@ import { Menu } from "lucide-react";
 import { Button } from "../ui/button";
 import { Suspense } from "react";
 import CustomUserButton from "./custom-user-button";
-import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <>
       <header className="sticky top-0 z-40 bg-accent/95 backdrop-blur supports-backdrop-filter:bg-accent/60 print:hidden py-0 sm:py-4">
@@ -21,18 +22,7 @@ export default function Header() {
                 onClick={() => setOpen(true)}
               />
             </div>
-            <div className="flex items-center gap-0 sm:gap-3">
-              <Image
-                src="/Logo-nobg.svg"
-                alt="School Logo"
-                width={130}
-                height={130}
-                className="h-26 w-auto sm:h-36"
-              />
-              <h1 className="text-xs sm:text-2xl font-bold">
-                GOVT L P SCHOOL VENGODY
-              </h1>
-            </div>
+
             <div className="flex flex-col gap-2 items-center sm:flex-row">
               <Suspense fallback={<div>Loading auth...</div>}>
                 <SignedOut>
@@ -104,13 +94,15 @@ export default function Header() {
                 My-Student
               </Link>
             </SignedIn>
-            <a
-              href="#school_facilities"
-              className="text-lg font-medium hover:text-primary"
-              onClick={() => setOpen(false)}
-            >
-              School facilities
-            </a>
+            {pathname === "/" && (
+              <a
+                href="#school_facilities"
+                className="text-lg font-medium hover:text-primary"
+                onClick={() => setOpen(false)}
+              >
+                School facilities
+              </a>
+            )}
             <a
               href="#contact"
               className="text-lg font-medium hover:text-primary"
