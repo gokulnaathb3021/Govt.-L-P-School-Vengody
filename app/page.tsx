@@ -12,14 +12,14 @@ export default function Home() {
         </h1>
         <div className="grid sm:grid-cols-2 gap-4 items-center">
           <Image
-            src="/GLPS_SCHOOL_1.jpg"
+            src="/GLPS_SCHOOL_1.JPG"
             alt="Students in front of school building."
             width={1280}
             height={960}
             className="w-full h-auto"
           />
           <Image
-            src="/GLPS_SCHOOL_3.jpg"
+            src="/GLPS_SCHOOL_3.JPG"
             alt="School opening ceremony."
             width={1280}
             height={854}
@@ -101,7 +101,7 @@ export default function Home() {
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <Image
-              src="/GLPS1.jpg"
+              src="/GLPS1.JPG"
               alt="School play space."
               width={6000}
               height={4000}
@@ -111,7 +111,7 @@ export default function Home() {
           </div>
           <div>
             <Image
-              src="/GLPS2.jpg"
+              src="/GLPS2.JPG"
               alt="School classroom."
               width={6000}
               height={4000}
@@ -123,7 +123,7 @@ export default function Home() {
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <Image
-              src="/GLPS3.jpg"
+              src="/GLPS3.JPG"
               alt="School classroom."
               width={6000}
               height={4000}
@@ -133,7 +133,7 @@ export default function Home() {
           </div>
           <div>
             <Image
-              src="/GLPS4.jpg"
+              src="/GLPS4.JPG"
               alt="AC Mini-theatre."
               width={6000}
               height={4000}
