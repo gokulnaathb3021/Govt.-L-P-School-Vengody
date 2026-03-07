@@ -1,9 +1,10 @@
 import SDownloadButton from "@/components/students/sDownloadButton";
 import AcademicsTable from "@/components/tables/academics-table";
 import { Button } from "@/components/ui/button";
-import { getAStudent } from "@/lib/student-actions/add-edit-del";
+import { getAStudent, getImageUrl } from "@/lib/student-actions/add-edit-del";
 import getAdmissionNumber from "@/lib/useful_fns/getAdmissionNumber";
 import { Check, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function SpecificStudent({
@@ -15,6 +16,7 @@ export default async function SpecificStudent({
   const admissionNumber = getAdmissionNumber(slug);
   const { student } = await getAStudent(admissionNumber);
   const s = student![0];
+  const imageUrl = await getImageUrl(admissionNumber);
   return (
     <div className="w-full max-w-5xl mx-auto bg-white p-4 sm:p-8">
       <SDownloadButton />
@@ -22,16 +24,30 @@ export default async function SpecificStudent({
         {s.student_name.toUpperCase()}
       </h1>
       <div className="overflow-x-auto">
-        <h1 className="mt-1 pl-0 ml-0 font-medium">
-          Class: <p className="inline text-sm font-normal">{s.class}</p>
-        </h1>
-        <h1 className="mt-1 pl-0 ml-0 font-medium">
-          Division: <p className="inline text-sm font-normal">{s.division}</p>
-        </h1>
-        <h1 className="mt-1 mb-5 pl-0 ml-0 font-medium">
-          Roll number:{" "}
-          <p className="inline text-sm font-normal">{s.roll_number}</p>
-        </h1>
+        <div className="flex justify-between">
+          <div>
+            <h1 className="mt-1 pl-0 ml-0 font-medium">
+              Class: <p className="inline text-sm font-normal">{s.class}</p>
+            </h1>
+            <h1 className="mt-1 pl-0 ml-0 font-medium">
+              Division:{" "}
+              <p className="inline text-sm font-normal">{s.division}</p>
+            </h1>
+            <h1 className="mt-1 mb-5 pl-0 ml-0 font-medium">
+              Roll number:{" "}
+              <p className="inline text-sm font-normal">{s.roll_number}</p>
+            </h1>
+          </div>
+          {imageUrl && (
+            <Image
+              src={`${imageUrl}?t=${admissionNumber}`}
+              alt="Student's photo"
+              width={150}
+              height={150}
+              className="mb-5 border-8 border-primary/30"
+            />
+          )}
+        </div>
         <table className="w-full border border-collapse text-sm">
           <tbody>
             <tr>
@@ -210,6 +226,13 @@ export default async function SpecificStudent({
             </Button>
           </div>
         </Link>
+        <Link href={`/explore/${admissionNumber}/image-upload`}>
+          <div className="flex mt-6 print:hidden">
+            <Button className="hover:cursor-pointer text-sm p-1">
+              Upload student image
+            </Button>
+          </div>
+        </Link>
         <Link href={`/explore/${admissionNumber}/add-grades`}>
           <div className="flex mt-6 print:hidden">
             <Button className="hover:cursor-pointer text-sm p-1">
@@ -221,6 +244,13 @@ export default async function SpecificStudent({
           <div className="flex mt-6 print:hidden">
             <Button className="hover:cursor-pointer text-sm p-1">
               Edit grades
+            </Button>
+          </div>
+        </Link>
+        <Link href={`/explore/${admissionNumber}/ai`}>
+          <div className="flex mt-6 print:hidden">
+            <Button className="hover:cursor-pointer text-sm p-1">
+              Generate AI feedback
             </Button>
           </div>
         </Link>

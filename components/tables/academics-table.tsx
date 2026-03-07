@@ -6,6 +6,7 @@ import {
 import TermTable from "./term-table";
 import HAQtable from "./HAQ-table";
 import ExCurrTable from "./ex-curr-table";
+import { get_AIContent } from "@/lib/student-actions/add-edit-del";
 
 export default async function AcademicsTable({
   admissionNumber,
@@ -65,10 +66,15 @@ export default async function AcademicsTable({
       }
     }
   }
+  const ai_content = await get_AIContent(admissionNumber);
   return (
     <div>
       {TermTable1} {QuarterlyTable} {TermTable2} {HalfyearlyTable} {TermTable3}{" "}
       {AnnualTable} {ExCurrT}
+      <div className="mt-5">
+        <h1 className="mb-3 text-xl font-bold underline">AI Feedback</h1>
+        <p className="text-lg">{ai_content}</p>
+      </div>
     </div>
   );
 }

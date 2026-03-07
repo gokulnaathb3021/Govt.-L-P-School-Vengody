@@ -3,8 +3,10 @@
 import { db } from "@/db";
 import {
   about_term,
+  AIContent,
   extracurricular,
   HAQTable,
+  studentImages,
   students,
   term_skill,
 } from "@/db/schema";
@@ -111,7 +113,18 @@ export const addStudentAction = async (
     child_sme_status: child_sme_status as string,
   };
   try {
-    await db.insert(students).values(insertData);
+    await db.transaction(async (tx) => {
+      await tx.insert(students).values(insertData);
+      await tx.insert(studentImages).values({
+        admission_number: Number(Admission_Number),
+        image_url: "",
+      });
+      await tx.insert(AIContent).values({
+        admission_number: Number(Admission_Number),
+        ai_content: "",
+      });
+    });
+
     return {
       success: true,
       errors: [],
@@ -303,4 +316,58 @@ export const deleteStudent = async (
       message: "Couldn't delete the student, please try again.",
     };
   }
+};
+
+export const setImageUrl = async (
+  admissionNumber: number,
+  imageUrl: string,
+) => {
+  try {
+    await db
+      .update(studentImages)
+      .set({
+        image_url: String(imageUrl),
+      })
+      .where(eq(studentImages.admission_number, Number(admissionNumber)));
+    return {
+      success: true,
+      errors: {},
+      message: "Image url set successfully.",
+    };
+  } catch (error) {
+    return {
+      success: false,
+      errors: { error },
+      message: "Couldn't set image url, please try again.",
+    };
+  }
+};
+
+export const getImageUrl = async (admissionNumber: number) => {
+  const res = await db
+    .select()
+    .from(studentImages)
+    .where(eq(studentImages.admission_number, Number(admissionNumber)));
+  return res[0].image_url;
+};
+
+export const set_AIContent = async (
+  admissionNumber: number,
+  ai_content: string,
+) => {
+  await db
+    .update(AIContent)
+    .set({
+      ai_content: String(ai_content),
+    })
+    .where(eq(AIContent.admission_number, Number(admissionNumber)));
+  revalidatePath(`/explore/${admissionNumber}`);
+};
+
+export const get_AIContent = async (admissionNumber: number) => {
+  const res = await db
+    .select()
+    .from(AIContent)
+    .where(eq(AIContent.admission_number, Number(admissionNumber)));
+  return res[0].ai_content;
 };

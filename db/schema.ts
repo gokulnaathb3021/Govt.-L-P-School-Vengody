@@ -112,3 +112,13 @@ export const extracurricular = pgTable(
     primaryKey({ columns: [table.admission_number, table.assessment_type] }),
   ],
 );
+
+export const studentImages = pgTable("student_images", {
+  admission_number: integer("admission_number").notNull().primaryKey(),
+  image_url: varchar("image_url").notNull(),
+});
+
+export const AIContent = pgTable("AIContent", {
+  admission_number: integer("admission_number").notNull().primaryKey(),
+  ai_content: varchar("ai_content").notNull(),
+});
