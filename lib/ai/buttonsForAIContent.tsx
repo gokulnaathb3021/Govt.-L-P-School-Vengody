@@ -107,25 +107,24 @@ export default function ButtonsForAIContent({
 
   return (
     <>
-      {res1!.length >= 1 && res!.length >= 1 && (
-        <Button onClick={() => askAI(gradesObject1)}>
-          Generate upto quarterly AI feedback
-        </Button>
-      )}
-      {res1!.length >= 2 && res!.length >= 2 && (
-        <Button onClick={() => askAI(gradesObject2)}>
-          Generate upto half-yearly AI feedback
-        </Button>
-      )}
-      {res1!.length >= 3 && res!.length >= 3 && (
-        <Button onClick={() => askAI(gradesObject3)}>
-          Generate upto annual AI feedback
-        </Button>
-      )}
-      {eCRes!.length > 0 && (
+      {eCRes!.length > 0 ? (
         <Button onClick={() => askAI(gradesObject4)}>
           Generate current academic year AI feedback
         </Button>
+      ) : res1!.length >= 3 && res!.length >= 3 ? (
+        <Button onClick={() => askAI(gradesObject3)}>
+          Generate upto annual AI feedback
+        </Button>
+      ) : res1!.length >= 2 && res!.length >= 2 ? (
+        <Button onClick={() => askAI(gradesObject2)}>
+          Generate upto half-yearly AI feedback
+        </Button>
+      ) : res1!.length >= 1 && res!.length >= 1 ? (
+        <Button onClick={() => askAI(gradesObject1)}>
+          Generate upto quarterly AI feedback
+        </Button>
+      ) : (
+        ""
       )}
       {aiContent !== "" && (
         <p className="p-2 border-4 rounded-lg border-green-600 bg-green-100">
