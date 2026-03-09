@@ -92,20 +92,20 @@ export default function UploadStudentImage({
           hidden
           ref={inputRef}
         />
-        {imgUrl != "" && (
+        {imgUrl !== "" && (
           <Image src={imgUrl} alt="Student's photo" width={150} height={150} />
         )}
         <Button
           className="cursor-pointer mt-5"
           onClick={() => inputRef.current?.click()}
-          hidden={imgUrl != ""}
+          hidden={imgUrl !== ""}
         >
           Upload photo
         </Button>
         <Button
           className="cursor-pointer mt-5"
           onClick={() => inputRef.current?.click()}
-          hidden={imgUrl == ""}
+          hidden={imgUrl === ""}
         >
           Change photo
         </Button>

@@ -135,7 +135,7 @@ export default async function AcademicsTable({
         </div>
       )}
       {ExCurrT}
-      {ai_content_uptoExtracurricular != "" && (
+      {ai_content_uptoExtracurricular !== "" && (
         <div className="mt-5">
           <h1 className="mb-3 text-xl font-bold underline">
             Overall Performance Summary
@@ -143,7 +143,7 @@ export default async function AcademicsTable({
           <p className="text-lg">{ai_content_uptoExtracurricular}</p>
         </div>
       )}
-      {ai_content_uptoExtracurricular != "" && (
+      {ai_content_uptoExtracurricular !== "" && (
         <div className="mt-10">
           <h1 className="underline font-bold text-xl mb-2 gap-1 flex">
             SPARK
