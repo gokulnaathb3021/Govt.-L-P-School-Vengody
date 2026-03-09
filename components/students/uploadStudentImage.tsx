@@ -29,7 +29,7 @@ export default function UploadStudentImage({
     const filePath = `students/${admissionNumber}-${Date.now()}.jpg`;
 
     const { error } = await supabase.storage
-      .from("G L P S Vengody students")
+      .from("GLPS Vengody")
       .upload(filePath, file, { upsert: true });
 
     if (error) {
@@ -39,7 +39,7 @@ export default function UploadStudentImage({
     }
 
     const { data } = supabase.storage
-      .from("G L P S Vengody students")
+      .from("GLPS Vengody")
       .getPublicUrl(filePath);
 
     const imageUrl = data.publicUrl;
@@ -56,14 +56,14 @@ export default function UploadStudentImage({
     const toastId = toast.loading("Changing image...");
     const filePath = `students/${admissionNumber}-${Date.now()}.jpg`;
     const { error } = await supabase.storage
-      .from("G L P S Vengody students")
+      .from("GLPS Vengody")
       .upload(filePath, file);
     if (error) {
       toast.error(`Couldn't change image. Error: ${error}`, { id: toastId });
       console.log(error);
     }
     const { data } = supabase.storage
-      .from("G L P S Vengody students")
+      .from("GLPS Vengody")
       .getPublicUrl(filePath);
 
     const imageUrl = data.publicUrl;

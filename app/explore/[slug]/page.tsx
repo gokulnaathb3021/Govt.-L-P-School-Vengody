@@ -218,6 +218,10 @@ export default async function SpecificStudent({
         {/* grades from here */}
         <AcademicsTable admissionNumber={admissionNumber} />
       </div>
+      <div className="flex justify-between mt-20">
+        <p>Headmaster/Headmistress</p>
+        <p>Class teacher</p>
+      </div>
       <div className="flex flex-col gap-3 mt-5">
         <div className="flex gap-2">
           <Link href={`/explore/${admissionNumber}/edit`}>
