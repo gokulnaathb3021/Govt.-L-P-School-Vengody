@@ -1,7 +1,9 @@
 import Slideshow from "@/components/animations/slide-show";
 import TypingText from "@/components/animations/typing-text";
 import {
+  Boxes,
   CalendarClock,
+  Eye,
   GraduationCap,
   Landmark,
   PersonStanding,
@@ -36,22 +38,6 @@ export default function Home() {
             <span className="text-primary"> G L P School, Vengody</span>, where
             young minds are nurtured for a brighter future.
           </h1>
-          {/* <div className="grid sm:grid-cols-2 gap-4 items-center">
-          <Image
-            src="/GLPS_SCHOOL_1.JPG"
-            alt="Students in front of school building."
-            width={1280}
-            height={960}
-            className="w-full h-auto"
-          />
-          <Image
-            src="/GLPS_SCHOOL_3.JPG"
-            alt="School opening ceremony."
-            width={1280}
-            height={854}
-            className="w-full h-auto"
-          />
-        </div> */}
           <Slideshow />
           <p className="mt-5 border-2 p-2 text-lg ">
             GLPS Vengody, located in the Elappully area of Palakkad district,
@@ -128,6 +114,58 @@ export default function Home() {
           </div>
         </section>
         {/* section 3 */}
+        <div className="border-2 p-4">
+          <section>
+            <h1 className="text-2xl font-bold flex items-center gap-2">
+              Vision
+              <Eye />
+            </h1>
+            <div className="space-y-6 p-2 text-lg">
+              To become a centre of excellence in primary education by nurturing
+              young minds with knowledge, values, creativity, and confidence,
+              enabling every child to grow into a responsible and compassionate
+              citizen.
+            </div>
+          </section>
+          {/* section 4 */}
+          <section>
+            <h1 className="text-2xl font-bold flex items-center gap-2">
+              Mission
+              <Boxes />
+            </h1>
+            <div className="space-y-6  p-2 text-lg">
+              <ul className="list-disc pl-6">
+                <li>
+                  Provide quality and inclusive primary education for all
+                  children.
+                </li>
+                <li>
+                  Strengthen students’ basic skills in language, mathematics,
+                  and life skills.
+                </li>
+                <li>
+                  Create a safe, joyful, and child-friendly learning
+                  environment.
+                </li>
+                <li>
+                  Promote moral values, discipline, and respect for diversity.
+                </li>
+                <li>
+                  Encourage creativity, critical thinking, and active
+                  participation in cultural and environmental activities.
+                </li>
+                <li>
+                  Work together with parents and the community for the holistic
+                  development of every child.
+                </li>
+              </ul>
+              Government L.P. School, Vengody is committed to shaping a
+              generation of confident learners and responsible citizens through
+              dedication, innovation, and care.
+            </div>
+          </section>
+        </div>
+        {/* section 5 */}
         <section id="school_facilities" className="space-y-6">
           <h1 className="text-2xl font-bold mb-5 flex items-center gap-2">
             School Facilities

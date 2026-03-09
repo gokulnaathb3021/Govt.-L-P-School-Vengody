@@ -120,5 +120,8 @@ export const studentImages = pgTable("student_images", {
 
 export const AIContent = pgTable("AIContent", {
   admission_number: integer("admission_number").notNull().primaryKey(),
-  ai_content: varchar("ai_content").notNull(),
+  upto_quarterly: varchar("upto_quarterly").notNull(),
+  upto_halfyearly: varchar("upto_halfyearly").notNull(),
+  upto_annual: varchar("upto_annual").notNull(),
+  upto_extracurricular: varchar("upto_extracurricular").notNull(),
 });

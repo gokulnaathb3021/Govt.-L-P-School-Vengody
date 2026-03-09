@@ -218,49 +218,55 @@ export default async function SpecificStudent({
         {/* grades from here */}
         <AcademicsTable admissionNumber={admissionNumber} />
       </div>
-      <div className="flex flex-wrap gap-3">
-        <Link href={`/explore/${admissionNumber}/edit`}>
-          <div className="flex mt-6 print:hidden">
-            <Button className="hover:cursor-pointer text-sm p-1">
-              Edit details
-            </Button>
-          </div>
-        </Link>
-        <Link href={`/explore/${admissionNumber}/image-upload`}>
-          <div className="flex mt-6 print:hidden">
-            <Button className="hover:cursor-pointer text-sm p-1">
-              Upload student image
-            </Button>
-          </div>
-        </Link>
-        <Link href={`/explore/${admissionNumber}/add-grades`}>
-          <div className="flex mt-6 print:hidden">
-            <Button className="hover:cursor-pointer text-sm p-1">
-              Add grades
-            </Button>
-          </div>
-        </Link>
-        <Link href={`/explore/${admissionNumber}/edit-grades`}>
-          <div className="flex mt-6 print:hidden">
-            <Button className="hover:cursor-pointer text-sm p-1">
-              Edit grades
-            </Button>
-          </div>
-        </Link>
-        <Link href={`/explore/${admissionNumber}/ai`}>
-          <div className="flex mt-6 print:hidden">
-            <Button className="hover:cursor-pointer text-sm p-1">
-              Generate AI feedback
-            </Button>
-          </div>
-        </Link>
-        <Link href={`/explore/${admissionNumber}/delete`}>
-          <div className="flex mt-6 print:hidden">
-            <Button className="hover:cursor-pointer text-sm p-1 bg-destructive">
-              Delete Student
-            </Button>
-          </div>
-        </Link>
+      <div className="flex flex-col gap-3 mt-5">
+        <div className="flex gap-2">
+          <Link href={`/explore/${admissionNumber}/edit`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Edit details
+              </Button>
+            </div>
+          </Link>
+          <Link href={`/explore/${admissionNumber}/image-upload`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Upload student image
+              </Button>
+            </div>
+          </Link>
+        </div>
+        <div className="flex gap-2">
+          <Link href={`/explore/${admissionNumber}/add-grades`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Add grades
+              </Button>
+            </div>
+          </Link>
+          <Link href={`/explore/${admissionNumber}/edit-grades`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Edit grades
+              </Button>
+            </div>
+          </Link>
+        </div>
+        <div className="flex justify-between">
+          <Link href={`/explore/${admissionNumber}/ai`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Generate AI feedback
+              </Button>
+            </div>
+          </Link>
+          <Link href={`/explore/${admissionNumber}/delete`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1 bg-destructive">
+                Delete Student
+              </Button>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );

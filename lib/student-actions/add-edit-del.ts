@@ -121,7 +121,10 @@ export const addStudentAction = async (
       });
       await tx.insert(AIContent).values({
         admission_number: Number(Admission_Number),
-        ai_content: "",
+        upto_quarterly: "",
+        upto_halfyearly: "",
+        upto_annual: "",
+        upto_extracurricular: "",
       });
     });
 
@@ -355,20 +358,24 @@ export const getImageUrl = async (admissionNumber: number) => {
 export const set_AIContent = async (
   admissionNumber: number,
   ai_content: string,
+  upto: string,
 ) => {
   await db
     .update(AIContent)
     .set({
-      ai_content: String(ai_content),
+      [upto]: String(ai_content),
     })
     .where(eq(AIContent.admission_number, Number(admissionNumber)));
   revalidatePath(`/explore/${admissionNumber}`);
 };
 
-export const get_AIContent = async (admissionNumber: number) => {
+export const get_AIContent = async (admissionNumber: number, upto: string) => {
   const res = await db
     .select()
     .from(AIContent)
     .where(eq(AIContent.admission_number, Number(admissionNumber)));
-  return res[0].ai_content;
+  if (upto === "uptoQuarterly") return res[0].upto_quarterly;
+  if (upto === "uptoHalfyearly") return res[0].upto_halfyearly;
+  if (upto === "uptoAnnual") return res[0].upto_annual;
+  if (upto === "uptoExtracurricular") return res[0].upto_extracurricular;
 };

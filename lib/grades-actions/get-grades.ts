@@ -2,7 +2,7 @@
 
 import { db } from "@/db";
 import { about_term, extracurricular, HAQTable, term_skill } from "@/db/schema";
-import { eq, sql } from "drizzle-orm";
+import { count, eq, sql } from "drizzle-orm";
 
 export const getTermGrades = async (admissionNumber: number) => {
   try {
@@ -103,6 +103,56 @@ export const getExCurrGrades = async (admissionNumber: number) => {
       success: false,
       errors: { error },
       message: "Couldn't fetch the grades, please try again.",
+    };
+  }
+};
+
+export const getNumRows = async (
+  admissionNumber: number,
+  tableName: string,
+) => {
+  try {
+    if (tableName === "about_term") {
+      const res = await db
+        .select({ count: count() })
+        .from(about_term)
+        .where(eq(about_term.admission_number, Number(admissionNumber)));
+      return {
+        countAboutTerm: res[0].count,
+        success: true,
+        errors: {},
+        message: "Count fetched.",
+      };
+    }
+    if (tableName === "HAQTable") {
+      const res = await db
+        .select({ count: count() })
+        .from(HAQTable)
+        .where(eq(HAQTable.admission_number, Number(admissionNumber)));
+      return {
+        countHAQ: res[0].count,
+        success: true,
+        errors: {},
+        message: "Count fetched.",
+      };
+    }
+    if (tableName === "extracurricular") {
+      const res = await db
+        .select({ count: count() })
+        .from(extracurricular)
+        .where(eq(extracurricular.admission_number, Number(admissionNumber)));
+      return {
+        countExtracurricular: res[0].count,
+        success: true,
+        errors: {},
+        message: "Count fetched.",
+      };
+    }
+  } catch (error) {
+    return {
+      success: false,
+      errors: { error },
+      message: "Couldn't fetch the count, please try again.",
     };
   }
 };
