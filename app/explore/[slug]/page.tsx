@@ -1,10 +1,11 @@
-import { ButtonsOnPdf } from "@/components/common/buttons-on-pdf";
 import SDownloadButton from "@/components/students/sDownloadButton";
 import AcademicsTable from "@/components/tables/academics-table";
+import { Button } from "@/components/ui/button";
 import { getAStudent, getImageUrl } from "@/lib/student-actions/add-edit-del";
 import getAdmissionNumber from "@/lib/useful_fns/getAdmissionNumber";
 import { Check, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function SpecificStudent({
   params,
@@ -221,7 +222,56 @@ export default async function SpecificStudent({
         <p>Headmaster/Headmistress</p>
         <p>Class teacher</p>
       </div>
-      <ButtonsOnPdf admissionNumber={admissionNumber} />
+      <div className="flex flex-col gap-3 mt-5">
+        <div className="flex gap-2">
+          <Link href={`/explore/${admissionNumber}/edit`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Edit details
+              </Button>
+            </div>
+          </Link>
+          <Link href={`/explore/${admissionNumber}/image-upload`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Upload student image
+              </Button>
+            </div>
+          </Link>
+        </div>
+        <div className="flex gap-2">
+          <Link href={`/explore/${admissionNumber}/add-grades`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Add grades
+              </Button>
+            </div>
+          </Link>
+          <Link href={`/explore/${admissionNumber}/edit-grades`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Edit grades
+              </Button>
+            </div>
+          </Link>
+        </div>
+        <div className="flex justify-between">
+          <Link href={`/explore/${admissionNumber}/ai`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1">
+                Generate AI feedback
+              </Button>
+            </div>
+          </Link>
+          <Link href={`/explore/${admissionNumber}/delete`}>
+            <div className="flex print:hidden">
+              <Button className="hover:cursor-pointer text-sm p-1 bg-destructive">
+                Delete Student
+              </Button>
+            </div>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
