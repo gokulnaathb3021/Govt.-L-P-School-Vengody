@@ -5,5 +5,5 @@ export default function getAdmissionNumber(slug: string) {
     admissionNumber += Number(slug[i]) * Math.pow(10, n - 1);
     n -= 1;
   }
-  return admissionNumber;
+  return Number(admissionNumber);
 }
