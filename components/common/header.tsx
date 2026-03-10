@@ -1,5 +1,5 @@
 "use client";
-import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { Show, SignInButton, SignUpButton } from "@clerk/nextjs";
 import { Menu } from "lucide-react";
 import { Button } from "../ui/button";
 import { Suspense } from "react";
@@ -25,7 +25,7 @@ export default function Header() {
 
             <div className="flex gap-2 items-center">
               <Suspense fallback={<div>Loading auth...</div>}>
-                <SignedOut>
+                <Show when="signed-out">
                   <SignInButton>
                     <Button
                       size="sm"
@@ -39,10 +39,10 @@ export default function Header() {
                       Tr Sign Up
                     </Button>
                   </SignUpButton>
-                </SignedOut>
-                <SignedIn>
+                </Show>
+                <Show when="signed-in">
                   <CustomUserButton />
-                </SignedIn>
+                </Show>
               </Suspense>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function Header() {
             >
               Home
             </Link>
-            <SignedIn>
+            <Show when="signed-in">
               <Link
                 href="/explore"
                 className="text-lg font-medium hover:text-primary"
@@ -93,7 +93,7 @@ export default function Header() {
               >
                 My-Student
               </Link>
-            </SignedIn>
+            </Show>
             {pathname === "/" && (
               <a
                 href="#school_facilities"
