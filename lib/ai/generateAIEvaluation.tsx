@@ -1,4 +1,5 @@
 "use server";
+import { revalidatePath } from "next/cache";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
@@ -7,6 +8,7 @@ const openai = new OpenAI({
 
 export async function generateStudentFeedback(
   grades: Record<string, Record<string, string>>,
+  admissionNumber: number,
 ) {
   console.log(grades);
   const prompt = `
@@ -31,6 +33,7 @@ Instructions:
     model: "gpt-5-mini",
     messages: [{ role: "user", content: prompt }],
   });
+  revalidatePath(`/explore/${admissionNumber}`);
 
   return response.choices[0].message.content;
 }

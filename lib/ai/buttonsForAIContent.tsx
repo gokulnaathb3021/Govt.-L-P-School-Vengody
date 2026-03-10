@@ -6,6 +6,7 @@ import { generateStudentFeedback } from "./generateAIEvaluation";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { set_AIContent } from "../student-actions/add-edit-del";
+import { useRouter } from "next/navigation";
 
 export default function ButtonsForAIContent({
   res1,
@@ -20,6 +21,7 @@ export default function ButtonsForAIContent({
   eCRes: (typeof extracurricular.$inferSelect)[];
   admissionNumber: number;
 }) {
+  const router = useRouter();
   const [aiContent, setAIContent] = useState("");
   const gradesObject1: Record<string, Record<string, string>> = {};
   let gradesObject2: Record<string, Record<string, string>> = {};
@@ -100,7 +102,7 @@ export default function ButtonsForAIContent({
     upto: string,
   ) => {
     const toastId = toast.loading("Generating AI feedback...");
-    const content = (await generateStudentFeedback(grades))!;
+    const content = (await generateStudentFeedback(grades, admissionNumber))!;
     setAIContent(content);
     await set_AIContent(admissionNumber, content, upto);
     toast.success("AI feedback generated.", {
@@ -152,6 +154,9 @@ export default function ButtonsForAIContent({
           {aiContent}
         </p>
       )}
+      <Button onClick={() => router.push(`/explore/${admissionNumber}`)}>
+        Back
+      </Button>
     </>
   );
 }
