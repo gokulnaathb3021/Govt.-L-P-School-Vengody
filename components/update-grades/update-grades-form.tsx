@@ -101,18 +101,22 @@ export default function UpdateGradesForm({
       <div className="py-10">
         {["Term 1", "Term 2", "Term 3"].includes(testType) && (
           <EditTermXGrades
-            key={testType}
+            key={JSON.stringify(aboutTermT) + JSON.stringify(termSkillT)}
             aboutTermT={aboutTermT}
             termSkillT={termSkillT}
             term={testType === "Term 1" ? 1 : testType === "Term 2" ? 2 : 3}
           />
         )}
         {["Quarterly", "Half-Yearly", "Annual"].includes(testType) && (
-          <EditHAQGrades key={testType} HAQT={HAQT} testType={testType} />
+          <EditHAQGrades
+            key={JSON.stringify(HAQT)}
+            HAQT={HAQT}
+            testType={testType}
+          />
         )}
         {testType === "ExCurr" && (
           <EditExCurrGrades
-            key={testType}
+            key={JSON.stringify(exCurrT)}
             exCurrT={exCurrT}
             testType={testType}
           />

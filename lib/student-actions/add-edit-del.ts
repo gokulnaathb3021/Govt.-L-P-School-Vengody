@@ -269,7 +269,7 @@ export const editAStudent = async (
       .set(updatedData)
       .where(eq(students.admission_number, updatedData.admission_number));
     revalidatePath(`/explore/${updatedData.admission_number}/edit`);
-    revalidatePath(`/explore/${updatedData.admission_number}`);
+    // revalidatePath(`/explore/${updatedData.admission_number}`);
     return {
       success: true,
       errors: [],

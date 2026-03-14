@@ -17,7 +17,7 @@ export const updateTermGrades = async (
 ) => {
   const rawFormData = Object.fromEntries(formData.entries());
   try {
-    db.transaction(async (tx) => {
+    await db.transaction(async (tx) => {
       await tx
         .update(about_term)
         .set({
@@ -81,7 +81,7 @@ export const updateTermGrades = async (
         })
         .where(eq(term_skill.id, Number(rawFormData.id4)));
     });
-
+    revalidatePath(`/explore/${rawFormData.admission_number}/edit-grades`);
     revalidatePath(`/explore/${rawFormData.admission_number}`);
     return {
       success: true,
