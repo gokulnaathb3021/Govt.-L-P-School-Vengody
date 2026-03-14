@@ -82,7 +82,7 @@ export const updateTermGrades = async (
         .where(eq(term_skill.id, Number(rawFormData.id4)));
     });
     revalidatePath(`/explore/${rawFormData.admission_number}/edit-grades`);
-    // revalidatePath(`/explore/${rawFormData.admission_number}`);
+    revalidatePath(`/explore/${rawFormData.admission_number}`);
     return {
       success: true,
       errors: [],
@@ -119,7 +119,7 @@ export const updateHAQGrades = async (
           eq(HAQTable.assessment_type, String(rawFormData.assessment_type)),
         ),
       );
-    // revalidatePath(`/explore/${rawFormData.admission_number}`);
+    revalidatePath(`/explore/${rawFormData.admission_number}`);
     return {
       success: true,
       errors: [],
@@ -160,7 +160,7 @@ export const updateExCurrGrades = async (
           eq(extracurricular.assessment_type, "Extracurricular Activities"),
         ),
       );
-    // revalidatePath(`/explore/${rawFormData.admission_number}`);
+    revalidatePath(`/explore/${rawFormData.admission_number}`);
     return {
       success: true,
       errors: [],
