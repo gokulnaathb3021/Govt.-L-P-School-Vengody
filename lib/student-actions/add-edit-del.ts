@@ -332,7 +332,7 @@ export const setImageUrl = async (
         image_url: String(imageUrl),
       })
       .where(eq(studentImages.admission_number, Number(admissionNumber)));
-    // revalidatePath(`/explore/${admissionNumber}`);
+    revalidatePath(`/explore/${admissionNumber}`);
     return {
       success: true,
       errors: {},
