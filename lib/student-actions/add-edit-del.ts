@@ -269,7 +269,6 @@ export const editAStudent = async (
       .set(updatedData)
       .where(eq(students.admission_number, updatedData.admission_number));
     revalidatePath(`/explore/${updatedData.admission_number}/edit`);
-    // revalidatePath(`/explore/${updatedData.admission_number}`);
     return {
       success: true,
       errors: [],
@@ -333,7 +332,7 @@ export const setImageUrl = async (
         image_url: String(imageUrl),
       })
       .where(eq(studentImages.admission_number, Number(admissionNumber)));
-    revalidatePath(`/explore/${admissionNumber}`);
+    // revalidatePath(`/explore/${admissionNumber}`);
     return {
       success: true,
       errors: {},
@@ -367,7 +366,7 @@ export const set_AIContent = async (
       [upto]: String(ai_content),
     })
     .where(eq(AIContent.admission_number, Number(admissionNumber)));
-  revalidatePath(`/explore/${admissionNumber}`);
+  // revalidatePath(`/explore/${admissionNumber}`);
 };
 
 export const get_AIContent = async (admissionNumber: number, upto: string) => {
