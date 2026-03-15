@@ -16,6 +16,23 @@ export default function PersonalDetails({
   return (
     <>
       <SDownloadButton />
+      <div className="flex">
+        <Image
+          src="/Logo-nobg.svg"
+          alt="School Logo"
+          width={200}
+          height={200}
+          className="h-36 sm:h-40 md:h-44 w-auto -mr-2 sm:-mr-4 md:-mr-6"
+        />
+        <div className="flex flex-col pt-10 sm:pt-12">
+          <h1 className="sm:text-3xl sm:font-bold text-sm">
+            Govt. L P SCHOOL, VENGODY
+          </h1>
+          <div className="h-6 sm:h-8">
+            A school providing a unique experience.
+          </div>
+        </div>
+      </div>
       <h1 className="text-lg sm:text-2xl text-center mb-4 font-bold">
         {s.student_name.toUpperCase()}
       </h1>
