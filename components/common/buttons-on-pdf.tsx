@@ -52,6 +52,16 @@ export const ButtonsOnPdf = ({
             Edit grades
           </Button>
         </div>
+        <div className="flex print:hidden">
+          <Button
+            className="hover:cursor-pointer text-sm p-1 bg-destructive"
+            onClick={() =>
+              router.push(`/explore/${admissionNumber}/delete-grades`)
+            }
+          >
+            Delete grades
+          </Button>
+        </div>
       </div>
       <div className="flex justify-between">
         <div className="flex print:hidden">

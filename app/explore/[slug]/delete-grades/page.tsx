@@ -1,10 +1,10 @@
 import SectionHeader from "@/components/common/section-header";
-import DeleteStudentForm from "@/components/forms/delete-student-form";
+import DeleteGradesForm from "@/components/forms/delete-grades-form";
 import { getAStudent } from "@/lib/student-actions/add-edit-del";
 import getAdmissionNumber from "@/lib/useful_fns/getAdmissionNumber";
 import { Trash } from "lucide-react";
 
-export default async function DeleteStudent({
+export default async function DeleteStudentGrades({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -19,11 +19,11 @@ export default async function DeleteStudent({
         <div className="mb-12">
           <SectionHeader
             icon={Trash}
-            title={`Delete student - ${s.student_name.toUpperCase()}`}
-            description="Once you click the 'Delete student permanently' button, the action can't be undone!"
+            title={`Delete gardes of student- ${s.student_name.toUpperCase()}`}
+            description="Once you click the 'Delete grades permanently' button, the action can't be undone!"
           />
         </div>
-        <DeleteStudentForm admissionNumber={admissionNumber} />
+        <DeleteGradesForm admissionNumber={admissionNumber} />
       </div>
     </section>
   );

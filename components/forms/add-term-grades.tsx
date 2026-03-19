@@ -56,6 +56,7 @@ export default function AddTermGradesForm({
           <select name="m_reading" id="reading1">
             <option value="Below Average">Below Average</option>
             <option value="Average">Average</option>
+            <option value="Good">Good</option>
             <option value="Excellent">Excellent</option>
           </select>
         </div>
@@ -64,6 +65,7 @@ export default function AddTermGradesForm({
           <select name="m_writing" id="writing1">
             <option value="Below Average">Below Average</option>
             <option value="Average">Average</option>
+            <option value="Good">Good</option>
             <option value="Excellent">Excellent</option>
           </select>
         </div>
@@ -84,6 +86,7 @@ export default function AddTermGradesForm({
           <select name="eng_reading" id="reading2">
             <option value="Below Average">Below Average</option>
             <option value="Average">Average</option>
+            <option value="Good">Good</option>
             <option value="Excellent">Excellent</option>
           </select>
         </div>
@@ -92,6 +95,7 @@ export default function AddTermGradesForm({
           <select name="eng_writing" id="writing2">
             <option value="Below Average">Below Average</option>
             <option value="Average">Average</option>
+            <option value="Good">Good</option>
             <option value="Excellent">Excellent</option>
           </select>
         </div>
@@ -112,6 +116,7 @@ export default function AddTermGradesForm({
           <select name="math_skill" id="math_skill">
             <option value="Below Average">Below Average</option>
             <option value="Average">Average</option>
+            <option value="Good">Good</option>
             <option value="Excellent">Excellent</option>
           </select>
         </div>
@@ -132,6 +137,7 @@ export default function AddTermGradesForm({
           <select name="evs_skill" id="evs_skill">
             <option value="Below Average">Below Average</option>
             <option value="Average">Average</option>
+            <option value="Good">Good</option>
             <option value="Excellent">Excellent</option>
           </select>
         </div>

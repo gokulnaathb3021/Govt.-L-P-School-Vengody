@@ -46,7 +46,7 @@ export default function UploadStudentImage({
 
     await setImageUrl(admissionNumber, imageUrl);
     setImgUrl(imageUrl);
-    console.log(imageUrl);
+    // console.log(imageUrl);
     toast.success("Uploaded image successfully.", {
       id: toastId,
     });

@@ -41,6 +41,7 @@ export default function TermTable({
             </th>
             <th className="border p-2">Below Average</th>
             <th className="border p-2">Average</th>
+            <th className="border p-2">Good</th>
             <th className="border p-2">Excellent</th>
           </tr>
           <tr>
@@ -54,6 +55,9 @@ export default function TermTable({
             </td>
             <td className="border p-2">
               {termSkillT![indices[0]].writing === "Average" ? <Check /> : ""}
+            </td>
+            <td className="border p-2">
+              {termSkillT![indices[0]].writing === "Good" ? <Check /> : ""}
             </td>
             <td className="border p-2">
               {termSkillT![indices[0]].writing === "Excellent" ? <Check /> : ""}
@@ -72,6 +76,9 @@ export default function TermTable({
               {termSkillT![indices[0]].reading === "Average" ? <Check /> : ""}
             </td>
             <td className="border p-2">
+              {termSkillT![indices[0]].reading === "Good" ? <Check /> : ""}
+            </td>
+            <td className="border p-2">
               {termSkillT![indices[0]].reading === "Excellent" ? <Check /> : ""}
             </td>
           </tr>
@@ -86,6 +93,9 @@ export default function TermTable({
             </td>
             <td className="border p-2">
               {termSkillT![indices[1]].writing === "Average" ? <Check /> : ""}
+            </td>
+            <td className="border p-2">
+              {termSkillT![indices[1]].writing === "Good" ? <Check /> : ""}
             </td>
             <td className="border p-2">
               {termSkillT![indices[1]].writing === "Excellent" ? <Check /> : ""}
@@ -104,6 +114,9 @@ export default function TermTable({
               {termSkillT![indices[1]].reading === "Average" ? <Check /> : ""}
             </td>
             <td className="border p-2">
+              {termSkillT![indices[1]].reading === "Good" ? <Check /> : ""}
+            </td>
+            <td className="border p-2">
               {termSkillT![indices[1]].reading === "Excellent" ? <Check /> : ""}
             </td>
           </tr>
@@ -119,6 +132,13 @@ export default function TermTable({
             </td>
             <td className="border p-2">
               {termSkillT![indices[2]].skill_level_in_general === "Average" ? (
+                <Check />
+              ) : (
+                ""
+              )}
+            </td>
+            <td className="border p-2">
+              {termSkillT![indices[2]].skill_level_in_general === "Good" ? (
                 <Check />
               ) : (
                 ""
@@ -145,6 +165,13 @@ export default function TermTable({
             </td>
             <td className="border p-2">
               {termSkillT![indices[3]].skill_level_in_general === "Average" ? (
+                <Check />
+              ) : (
+                ""
+              )}
+            </td>
+            <td className="border p-2">
+              {termSkillT![indices[3]].skill_level_in_general === "Good" ? (
                 <Check />
               ) : (
                 ""

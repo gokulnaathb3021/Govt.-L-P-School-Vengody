@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteStudent } from "@/lib/student-actions/add-edit-del";
+import { deleteStudentGrades } from "@/lib/student-actions/add-edit-del";
 import { useActionState, useEffect } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -18,22 +18,22 @@ const initialState: FormState = {
   errors: [],
   message: "",
 };
-export default function DeleteStudentForm({
+export default function DeleteGradesForm({
   admissionNumber,
 }: {
   admissionNumber: number;
 }) {
-  const [state, formAction] = useActionState(deleteStudent, initialState);
+  const [state, formAction] = useActionState(deleteStudentGrades, initialState);
 
   const success = state.success;
   const errors = state.errors;
   const message = state.message;
   const router = useRouter();
   useEffect(() => {
-    if (message === "Successfully deleted student.") {
-      router.push("/explore");
+    if (message === "Successfully deleted grades.") {
+      router.push(`/explore/${admissionNumber}`);
     }
-  }, [message, router]);
+  }, [message, router, admissionNumber]);
   return (
     <form
       onKeyDown={(e) => {
@@ -60,7 +60,7 @@ export default function DeleteStudentForm({
           readOnly
         />
       </div>
-      <DeleteButton textToDisplay="Delete student permanently" />
+      <DeleteButton textToDisplay="Delete grades permanently" />
     </form>
   );
 }

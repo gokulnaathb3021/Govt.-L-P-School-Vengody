@@ -321,6 +321,47 @@ export const deleteStudent = async (
   }
 };
 
+export const deleteStudentGrades = async (
+  prevState: FormState | undefined,
+  formData: FormData,
+) => {
+  try {
+    const rawFormData = Object.fromEntries(formData.entries());
+    const { ad_num_of_del } = rawFormData;
+    await db.transaction(async (tx) => {
+      await tx
+        .delete(about_term)
+        .where(eq(about_term.admission_number, Number(ad_num_of_del)));
+      await tx
+        .delete(term_skill)
+        .where(eq(term_skill.admission_number, Number(ad_num_of_del)));
+      await tx
+        .delete(HAQTable)
+        .where(eq(HAQTable.admission_number, Number(ad_num_of_del)));
+      await tx
+        .delete(extracurricular)
+        .where(eq(extracurricular.admission_number, Number(ad_num_of_del)));
+      await tx.update(AIContent).set({
+        upto_quarterly: "",
+        upto_halfyearly: "",
+        upto_annual: "",
+        upto_extracurricular: "",
+      });
+    });
+    return {
+      success: true,
+      errors: [],
+      message: "Successfully deleted grades.",
+    };
+  } catch (error) {
+    return {
+      success: false,
+      errors: [`error: ${error}`],
+      message: "Couldn't delete the grades, please try again.",
+    };
+  }
+};
+
 export const setImageUrl = async (
   admissionNumber: number,
   imageUrl: string,

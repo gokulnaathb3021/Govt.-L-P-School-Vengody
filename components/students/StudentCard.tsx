@@ -29,7 +29,7 @@ export default function StudentCard({
         {/* React preserves the client component state in memory when using the browser back button with Next.js. So your spinner shows even though navigation is done. */}
         {isLoading && <Loader2Icon className="animate-spin" />}
         <CardTitle className="text-sm sm:text-lg text-primary">
-          {student.student_name}
+          {student.student_name.toUpperCase()}
         </CardTitle>
         <CardDescription className="text-xs sm:text-sm">
           <p>

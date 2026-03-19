@@ -12,9 +12,9 @@ export const getStudentGrades = async (admissionNumber: number) => {
   const { res1, res2 } = aboutTerm;
   const { res } = HAQGrades;
   const { eCRes } = exCurrGrades;
-  console.log(res1);
-  console.log(res2);
-  console.log(res);
-  console.log(eCRes);
+  // console.log(res1);
+  // console.log(res2);
+  // console.log(res);
+  // console.log(eCRes);
   return { res1, res2, res, eCRes };
 };

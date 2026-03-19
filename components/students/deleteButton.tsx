@@ -2,7 +2,11 @@ import { Loader2Icon, Trash } from "lucide-react";
 import { Button } from "../ui/button";
 import { useFormStatus } from "react-dom";
 
-export default function DeleteStudentButton() {
+export default function DeleteButton({
+  textToDisplay,
+}: {
+  textToDisplay: string;
+}) {
   const { pending } = useFormStatus();
   return (
     <Button
@@ -14,7 +18,7 @@ export default function DeleteStudentButton() {
       ) : (
         <>
           <Trash className="size-4" />
-          Delete student permanently
+          {textToDisplay}
         </>
       )}
     </Button>

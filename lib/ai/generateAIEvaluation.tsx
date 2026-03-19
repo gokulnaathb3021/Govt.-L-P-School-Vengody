@@ -10,7 +10,7 @@ export async function generateStudentFeedback(
   grades: Record<string, Record<string, string>>,
   admissionNumber: number,
 ) {
-  console.log(grades);
+  // console.log(grades);
   const prompt = `
 You are a school teacher writing short feedback about a student.
 
@@ -20,7 +20,7 @@ Student data:
 ${JSON.stringify(grades, null, 2)}
 
 Instructions:
-- Write a short feedback paragraph for each term.
+- Write a short feedback paragraph for each term, quarterly (when relevant data is given), half-yearly (when relevant data is given), annual (when relevant data is given).
 - Mention strengths and areas of improvement if present, along with tips for improving.
 - Keep the tone positive and constructive.
 - Do not mention JSON or data structure.

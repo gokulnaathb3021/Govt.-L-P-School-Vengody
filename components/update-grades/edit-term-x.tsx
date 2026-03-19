@@ -116,6 +116,7 @@ export default function EditTermXGrades({
             >
               <option value="Below Average">Below Average</option>
               <option value="Average">Average</option>
+              <option value="Good">Good</option>
               <option value="Excellent">Excellent</option>
             </select>
           </div>
@@ -128,6 +129,7 @@ export default function EditTermXGrades({
             >
               <option value="Below Average">Below Average</option>
               <option value="Average">Average</option>
+              <option value="Good">Good</option>
               <option value="Excellent">Excellent</option>
             </select>
           </div>
@@ -152,6 +154,7 @@ export default function EditTermXGrades({
             >
               <option value="Below Average">Below Average</option>
               <option value="Average">Average</option>
+              <option value="Good">Good</option>
               <option value="Excellent">Excellent</option>
             </select>
           </div>
@@ -164,6 +167,7 @@ export default function EditTermXGrades({
             >
               <option value="Below Average">Below Average</option>
               <option value="Average">Average</option>
+              <option value="Good">Good</option>
               <option value="Excellent">Excellent</option>
             </select>
           </div>
@@ -188,6 +192,7 @@ export default function EditTermXGrades({
             >
               <option value="Below Average">Below Average</option>
               <option value="Average">Average</option>
+              <option value="Good">Good</option>
               <option value="Excellent">Excellent</option>
             </select>
           </div>
@@ -212,6 +217,7 @@ export default function EditTermXGrades({
             >
               <option value="Below Average">Below Average</option>
               <option value="Average">Average</option>
+              <option value="Good">Good</option>
               <option value="Excellent">Excellent</option>
             </select>
           </div>
