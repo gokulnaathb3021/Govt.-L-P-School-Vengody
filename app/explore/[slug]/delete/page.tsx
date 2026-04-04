@@ -1,14 +1,18 @@
 import SectionHeader from "@/components/common/section-header";
 import DeleteStudentForm from "@/components/forms/delete-student-form";
 import { getAStudent } from "@/lib/student-actions/add-edit-del";
+import { approvalCheck } from "@/lib/useful_fns/approval-check";
 import getAdmissionNumber from "@/lib/useful_fns/getAdmissionNumber";
 import { Trash } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default async function DeleteStudent({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const approved = await approvalCheck();
+  if (!approved) redirect("/");
   const { slug } = await params;
   const admissionNumber = getAdmissionNumber(slug);
   const { student } = await getAStudent(admissionNumber);

@@ -1,14 +1,18 @@
 import SectionHeader from "@/components/common/section-header";
 import AddGradesForm from "@/components/forms/Add-Grades-Form";
 import { getHAQGrades, getTermGrades } from "@/lib/grades-actions/get-grades";
+import { approvalCheck } from "@/lib/useful_fns/approval-check";
 import getAdmissionNumber from "@/lib/useful_fns/getAdmissionNumber";
 import { GraduationCap } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default async function AddGrades({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const approved = await approvalCheck();
+  if (!approved) redirect("/");
   const { slug } = await params;
   const admissionNumber = getAdmissionNumber(slug);
   const { res1 } = await getTermGrades(admissionNumber);

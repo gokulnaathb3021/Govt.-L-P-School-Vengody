@@ -8,12 +8,16 @@ import { getAStudent } from "@/lib/student-actions/add-edit-del";
 import getAdmissionNumber from "@/lib/useful_fns/getAdmissionNumber";
 import { Edit2 } from "lucide-react";
 import UpdateGradesWrapper from "@/components/update-grades/update-grades-wrapper";
+import { approvalCheck } from "@/lib/useful_fns/approval-check";
+import { redirect } from "next/navigation";
 
 export default async function EditGrades({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const approved = await approvalCheck();
+  if (!approved) redirect("/");
   const { slug } = await params;
   const admissionNumber = getAdmissionNumber(slug);
   const { student } = await getAStudent(admissionNumber);

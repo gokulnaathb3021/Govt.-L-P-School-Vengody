@@ -1,14 +1,18 @@
 import SectionHeader from "@/components/common/section-header";
 import ButtonsForAIContent from "@/lib/ai/buttonsForAIContent";
 import { getStudentGrades } from "@/lib/ai/studentGrades";
+import { approvalCheck } from "@/lib/useful_fns/approval-check";
 import getAdmissionNumber from "@/lib/useful_fns/getAdmissionNumber";
 import { BrainCircuit } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default async function getAIEvaluation({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const approved = await approvalCheck();
+  if (!approved) redirect("/");
   const { slug } = await params;
   const admissionNumber = getAdmissionNumber(slug);
   const { res1, res2, res, eCRes } = await getStudentGrades(admissionNumber);
