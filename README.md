@@ -9,7 +9,8 @@ Tech stack used:
 - Drizzle ORM
 - Supbabase for storing images
 - Nodemailer for mailing
-- Shadcn 
+- Shadcn
+- Deployed on Vercel
 
 About the app:
 - Volunteered: Built a Full-Stack student management web app for Govt L P School, Vengodi(250 pupils).
